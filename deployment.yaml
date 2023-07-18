@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: saloni-deployment
+  namespace: saloni-app 
+  labels:
+    app: saloni-apps
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: saloni-apps
+  template:
+    metadata:
+      labels:
+        app: saloni-apps
+    spec:
+      containers:
+      - name: saloni-container
+        image: salonikrr/saloni-image:2.0
+        ports:
+        - containerPort: 8000
+
+        

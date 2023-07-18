@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: saloni-ingress
+  namespace: saloni-app 
+  labels:
+    app: saloni-apps
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: saloni-krr.com
+      http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: saloni-service
+              port:
+                number: 80
+
+
+      
+
+      
